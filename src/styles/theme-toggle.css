@@ -1,0 +1,59 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  background: var(--subtle-bg);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:hover {
+  background: var(--subtle-bg-hover);
+  color: var(--text-primary);
+  border-color: var(--text-tertiary);
+}
+
+.sidebar-theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.mobile-theme-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-theme-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .sidebar-theme-toggle {
+    display: none;
+  }
+}
+
+[data-theme="dark"] .lang-icon {
+  filter: brightness(0.85) invert(0.85);
+}
+
+[data-theme="dark"] .item-logo {
+  filter: brightness(0.9);
+}
+
+body,
+.sidebar,
+.mobile-topbar,
+.dropdown-menu,
+.project-card,
+.skill-tag,
+.lang-tag {
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}

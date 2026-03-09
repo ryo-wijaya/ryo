@@ -1,0 +1,30 @@
+.skill-group:last-child {
+  margin-bottom: 0 !important;
+}
+
+.skill-label {
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.lang-tag {
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.42rem 0.85rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.lang-tag:hover {
+  border-color: var(--text-tertiary);
+  transform: translateY(-1px);
+}
+
+.lang-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}

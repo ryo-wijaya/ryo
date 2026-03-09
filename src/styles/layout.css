@@ -1,0 +1,15 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+}
+
+.content-inner {
+  max-width: 780px;
+  margin: 0 auto 0 clamp(2.5rem, 8vw, 12rem);
+  padding: 0 2.5rem 6rem;
+}

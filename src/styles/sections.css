@@ -1,0 +1,28 @@
+.portfolio-section {
+  min-height: 100vh;
+}
+
+.portfolio-section + .portfolio-section {
+  border-top: 1px solid var(--border);
+}
+
+.section-inner {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.75rem;
+  color: var(--accent);
+}
+
+.hero-name {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.75rem;
+  color: var(--accent);
+  line-height: 1.15;
+}

@@ -1,0 +1,29 @@
+.cert-item + .cert-item {
+  border-top: 1px solid var(--border);
+}
+
+.cert-name {
+  font-size: 1rem;
+}
+
+.cert-name a {
+  color: var(--text-primary);
+  transition: color 0.15s;
+}
+
+.cert-name a:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.inline-arrow {
+  display: inline;
+  vertical-align: middle;
+  margin-left: 1px;
+  opacity: 0.5;
+}
+
+.cert-meta {
+  font-size: 0.88rem;
+  color: var(--text-tertiary);
+}

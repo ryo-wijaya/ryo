@@ -1,0 +1,54 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.project-card {
+  padding: 1.15rem 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  cursor: default;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.project-card {
+  cursor: pointer;
+}
+
+a.project-card:hover {
+  background: var(--card-hover);
+  border-color: var(--border);
+  transform: translateY(-2px);
+  opacity: 1;
+  color: inherit;
+}
+
+.project-name {
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.project-arrow {
+  color: var(--text-tertiary);
+  transition: transform 0.2s, color 0.2s;
+}
+
+a.project-card:hover .project-arrow {
+  transform: translate(2px, -2px);
+  color: var(--accent);
+}
+
+.project-tech {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+}
+
+.project-desc {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

@@ -1,0 +1,59 @@
+.item-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-top: 2px;
+}
+
+.edu-item:last-child,
+.exp-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.item-title {
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+}
+
+.item-loc {
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+.item-period {
+  font-size: 0.88rem;
+  color: var(--text-tertiary);
+}
+
+.item-subtitle {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.1rem;
+}
+
+.item-detail {
+  font-size: 0.92rem;
+  color: var(--text-tertiary);
+}
+
+.exp-bullets li {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: 0.95rem;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+
+.exp-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
+}

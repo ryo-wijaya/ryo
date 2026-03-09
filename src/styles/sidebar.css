@@ -1,0 +1,81 @@
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--sidebar-w);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  z-index: 200;
+  overflow-y: auto;
+}
+
+.sidebar-inner {
+  min-height: 100%;
+  padding: 2.25rem 1.35rem 1.5rem;
+}
+
+.avatar-wrapper {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--border);
+  box-shadow: 0 0 0 3px var(--sidebar-bg), 0 0 0 4px var(--sidebar-border);
+}
+
+.sidebar-name {
+  font-size: 1.2rem;
+  letter-spacing: -0.015em;
+}
+
+.sidebar-title {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.sidebar-links a {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  background: var(--subtle-bg);
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar-links a:hover {
+  background: var(--subtle-bg-hover);
+  color: var(--text-primary);
+  opacity: 1;
+}
+
+.nav-item {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  background: var(--subtle-bg);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+a.resume-nav {
+  border-top: 1px solid var(--sidebar-border);
+  border-radius: 0;
+  padding-top: 0.65rem;
+  margin-top: 0.5rem;
+}
