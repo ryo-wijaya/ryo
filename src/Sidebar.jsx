@@ -1,6 +1,6 @@
 import {
   User, GraduationCap, Briefcase, Layers, FolderOpen,
-  Award, FileText, Github, Linkedin, Mail,
+  Award, Music, FileText, BookOpen, Github, Linkedin, Mail,
 } from "lucide-react";
 import { profile } from "./data";
 import resumePdf from "./assets/Ryo_Wijaya_Resume.pdf";
@@ -13,6 +13,7 @@ const NAV = [
   { id: "skills", label: "Skills", icon: Layers },
   { id: "projects", label: "Projects", icon: FolderOpen },
   { id: "certifications", label: "Certifications", icon: Award },
+  { id: "music", label: "Music", icon: Music },
 ];
 
 export default function Sidebar({ active }) {
@@ -56,7 +57,12 @@ export default function Sidebar({ active }) {
             </button>
           ))}
 
-          <a href={resumePdf} target="_blank" rel="noreferrer" className="nav-item resume-nav d-flex align-items-center gap-2 w-100 text-start">
+          <a href={profile.blog} target="_blank" rel="noreferrer" className="nav-item resume-nav d-flex align-items-center gap-2 w-100 text-start">
+            <BookOpen size={16} strokeWidth={1.8} />
+            Blog
+          </a>
+
+          <a href={resumePdf} target="_blank" rel="noreferrer" className="nav-item d-flex align-items-center gap-2 w-100 text-start">
             <FileText size={16} strokeWidth={1.8} />
             Resume
           </a>

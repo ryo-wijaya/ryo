@@ -9,16 +9,16 @@
   font-size: 0.95rem;
 }
 
-.blog-link {
-  font-size: 0.9rem;
+.about-btn {
+  font-size: 1rem;
   color: var(--accent);
-  padding: 0.45rem 1rem;
+  padding: 0.55rem 1.25rem;
   border-radius: 20px;
   background: var(--accent-subtle);
   transition: background 0.15s;
 }
 
-.blog-link:hover {
+.about-btn:hover {
   background: var(--accent-subtle-hover);
   opacity: 1;
 }

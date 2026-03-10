@@ -2,12 +2,13 @@ export const profile = {
   name: "Ryo Wijaya",
   title: "Software Engineer",
   location: "Singapore",
+  nationality: "Singapore Citizen",
   email: "mainryo@gmail.com",
   linkedin: "https://linkedin.com/in/ryowijaya",
   github: "https://github.com/ryo-wijaya",
   blog: "https://blog.ryo-wijaya.me",
   about:
-    "Software engineer based in Singapore with a focus on distributed systems, data engineering, and cloud infrastructure. Currently building modular ETL pipelines and internal tooling at Crédit Agricole CIB. I enjoy working across the full stack — from Spark and Kafka backends to Angular and Next.js frontends. Outside of work, I tinker with personal projects, play electric guitar, and write on my blog.",
+    "Full stack software engineer in Singapore. Currently at Crédit Agricole Corporate & Investment Bank, where I mostly build backend services and data pipelines with Spring Boot, Spark Java, Kafka, Helm/Kubernetes/Docker, GitLab CI, and GCP. I try to have fun building things. Outside of work, I play electric guitar, piano, and drums, do some amateur music production, and bring my dog out to places.",
 };
 
 export const education = [
@@ -36,7 +37,7 @@ export const experience = [
     logo: "/cacib.png",
     bullets: [
       "Contributed to the design and development of a greenfield project to build modular ETL Treatment Chains using Spark Streaming, Spring Boot, and GCP; developed cloud-enabled Java drivers to ingest, enrich, and distribute Commercial Real Estate Loans and Capital Markets data.",
-      "Developed an internal Spring Boot platform for automated JSON ↔ Avro conversion, Kafka topic management, PostgreSQL configuration validation and loading, and Apache Iceberg DDL generation; adopted by cross-functional teams in Singapore and Paris.",
+      "Developed an internal Spring Boot platform for automated JSON ↔ Avro conversion, Kafka topic management, PostgreSQL configuration validation and loading, and Apache Iceberg DDL generationfrom Avro schema generation; adopted by cross-functional teams in Singapore and Paris.",
       "Architected and implemented OpenID Connect (OIDC) and OAuth2 SSO authentication for the Angular application platform and developed UI features.",
       "Implemented schema validation across upstream sources and downstream destinations by utilizing Confluent Schema Registry and Kafka. Managed schema evolution across Avro schema version upgrades.",
       "Orchestrated deployments using Helm, Kubernetes, and created GitLab CI pipelines to ensure robust CI/CD.",
@@ -75,18 +76,11 @@ export const projects = [
       "E-commerce marketplace for pet-service providers and owners. Facilitates bookings, purchases, and admin management.",
   },
   {
-    name: "Optimal Travel Plan",
+    name: "Optimal-Travel-Plan",
     tech: "Jakarta EE, JSF, MySQL, Ionic",
     url: "https://github.com/ryo-wijaya/Optimal-Travel-Plan",
     description:
       "Web and hybrid mobile app that generates optimized travel itineraries based on available events and services.",
-  },
-  {
-    name: "ibkr-tv-tradebot",
-    tech: "FastAPI, IBKR TWS API, TradingView",
-    url: "https://github.com/ryo-wijaya/ibkr-tv-tradebot",
-    description:
-      "FastAPI server utilizing the IBKR TWS API for order execution and TradingView webhook integration.",
   },
   {
     name: "my-pi-board",
@@ -96,18 +90,53 @@ export const projects = [
       "Dashboard application for bus timings and stock market monitoring, running on a Raspberry Pi.",
   },
   {
-    name: "Blog",
-    tech: "Jekyll, GitHub Actions",
-    url: "https://blog.ryo-wijaya.me",
-    description:
-      "Personal blog with automated CI/CD deployment via GitHub Actions.",
-  },
-  {
     name: "RAG System",
     tech: "FastAPI, LangGraph, Qdrant",
     url: null,
     description:
       "FastAPI application using LangGraph and Qdrant to implement hybrid (vector + BM25) search over documents.",
+  },
+    {
+    name: "ryo",
+    tech: "React, Vite, Bootstrap",
+    url: "https://github.com/ryo-wijaya/ryo",
+    description:
+      "This very site!",
+  },
+  {
+    name: "blog",
+    tech: "Jekyll, GitHub Actions",
+    url: "https://blog.ryo-wijaya.me",
+    description:
+      "Personal Jekyll blog utilizing the open-source Chirpy Theme.",
+  },
+  {
+    name: "HotelReservationProject",
+    tech: "Jakarta EE, GlassFish, SOAP Web Services",
+    url: "https://github.com/ryo-wijaya/HotelReservationProject",
+    description:
+      "Enterprise CLI application for hotel room inventory, rate management, reservations, and automated room allocation.",
+  },
+  {
+    name: "sprout",
+    tech: "Solidity, Truffle, Web3.js, Ganache",
+    url: "https://github.com/ryo-wijaya/sprout",
+    description:
+      "Blockchain-based job marketplace with escrow services and a DAO for dispute resolution, built on Ethereum smart contracts.",
+  },
+  {
+    name: "ibkr-tv-tradebot",
+    tech: "FastAPI, IBKR TWS API, TradingView",
+    url: "https://github.com/ryo-wijaya/ibkr-tv-tradebot",
+    description:
+      "FastAPI server utilizing the IBKR TWS API for order execution and TradingView webhook integration.",
+  },
+  {
+    name: "trade-alerter",
+    tech: "Python, FastAPI, Telegram Bot API, Docker",
+    url: "https://github.com/ryo-wijaya/trade-alerter",
+    description:
+      "Lightweight service that receives TradingView webhook alerts and forwards buy/sell signals via a Telegram bot.",
   },
 ];
 
@@ -159,7 +188,7 @@ export const skills = {
 export const certifications = [
   {
     name: "Certified Kubernetes Application Developer (CKAD) — 98/100",
-    issuer: "CNCF",
+    issuer: "Cloud Native Computing Foundation",
     year: "2025",
     url: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/11eb9f8b-d2de-46e0-82b0-4a2704349423-ryo-armando-wijaya-778fb699-4b16-4c9f-9c14-6e3d1fc78e51-certificate.pdf",
   },
@@ -180,5 +209,38 @@ export const certifications = [
     issuer: "National University of Singapore",
     year: "2024",
     url: "https://credentials.nus.edu.sg/af73a852-f403-4262-ba54-cb15b6a68ccd",
+  },
+];
+
+const BLOG_MEDIA = "https://blog.ryo-wijaya.me/assets/media/music";
+
+export const music = [
+  {
+    title: "悲剧信徒",
+    credits: [{ label: "Lyrics and vocals by", name: "Neo Ee Leng", url: "https://www.instagram.com/soda.lyrics/" }],
+    audio: `${BLOG_MEDIA}/悲剧信徒.mp3`,
+    audioLead: `${BLOG_MEDIA}/悲剧信徒-lead.mp3`,
+  },
+  {
+    title: "后天爱上你",
+    credits: [{ label: "Lyrics and vocals by", name: "Neo Ee Leng", url: "https://www.instagram.com/soda.lyrics/" }],
+    audio: `${BLOG_MEDIA}/后天爱上你.mp3`,
+    audioLead: `${BLOG_MEDIA}/后天爱上你-lead.mp3`,
+  },
+  {
+    title: "3 Button Face",
+    credits: [{ label: "Vocals by", name: "Neo Ee Leng", url: "https://www.instagram.com/soda.lyrics/" }],
+    audioLead: `${BLOG_MEDIA}/3buttonface-lead.mp3`,
+    youtube: "https://www.youtube.com/embed/LUqzHqqEzqw",
+  },
+  {
+    title: "Jellyfish",
+    credits: [{ label: "Instrumental" }],
+    youtube: "https://www.youtube.com/embed/JPUBdV_BBOM",
+  },
+  {
+    title: "Set Your Heart Ablaze",
+    credits: [{ label: "Guitar instrumental, solo by", name: "Tim Ng", url: "https://www.youtube.com/@legovidz1/videos" }],
+    youtube: "https://www.youtube.com/embed/A8k_rz6UMhY",
   },
 ];

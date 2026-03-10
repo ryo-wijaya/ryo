@@ -1,20 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import {
   MapPin, Mail, ArrowUpRight, Menu, X,
-  User, GraduationCap, Briefcase, Layers, FolderOpen, Award, FileText,
+  User, GraduationCap, Briefcase, Layers, FolderOpen, Award, Music, BookOpen, FileText,
+  Flag,
 } from "lucide-react";
 import Sidebar from "./Sidebar";
 import Section from "./Section";
 import ThemeToggle from "./ThemeToggle";
 import {
   profile, education, experience, languages, skills,
-  projects, certifications,
+  projects, certifications, music,
 } from "./data";
 import resumePdf from "./assets/Ryo_Wijaya_Resume.pdf";
 
 const SECTIONS = [
   "about", "education", "experience",
-  "skills", "projects", "certifications",
+  "skills", "projects", "certifications", "music",
 ];
 
 const MOBILE_NAV = [
@@ -24,6 +25,8 @@ const MOBILE_NAV = [
   { id: "skills", label: "Skills", icon: Layers },
   { id: "projects", label: "Projects", icon: FolderOpen },
   { id: "certifications", label: "Certifications", icon: Award },
+  { id: "music", label: "Music", icon: Music },
+  { id: "blog", label: "Blog", icon: BookOpen },
   { id: "resume", label: "Resume", icon: FileText },
 ];
 
@@ -97,6 +100,19 @@ export default function App() {
                 <Icon size={18} strokeWidth={1.8} />
                 <span>{label}</span>
               </a>
+            ) : id === "blog" ? (
+              <a
+                key={id}
+                href={profile.blog}
+                target="_blank"
+                rel="noreferrer"
+                className="dropdown-item"
+                style={{ animationDelay: `${i * 0.04}s` }}
+                onClick={() => setMenuOpen(false)}
+              >
+                <Icon size={18} strokeWidth={1.8} />
+                <span>{label}</span>
+              </a>
             ) : (
               <button
                 key={id}
@@ -122,13 +138,19 @@ export default function App() {
           <Section id="about" title={profile.name} heroTitle>
             <p className="about-text">{profile.about}</p>
             <div className="contact-row d-flex flex-wrap gap-3 mt-3">
-              <span className="d-inline-flex align-items-center gap-1"><MapPin size={14} strokeWidth={1.8} /> {profile.location}</span>
+              <span className="d-inline-flex align-items-center gap-1"><Flag size={14} strokeWidth={1.8} /> {profile.nationality}</span>
               <span className="d-inline-flex align-items-center gap-1"><Mail size={14} strokeWidth={1.8} /> <a href={`mailto:${profile.email}`}>{profile.email}</a></span>
             </div>
-            <a href={profile.blog} target="_blank" rel="noreferrer" className="blog-link d-inline-flex align-items-center gap-1 fw-semibold mt-3">
-              Visit Blog
-              <ArrowUpRight size={13} />
-            </a>
+            <div className="d-flex flex-wrap gap-2 mt-3">
+              <a href={profile.blog} target="_blank" rel="noreferrer" className="about-btn d-inline-flex align-items-center gap-1 fw-semibold">
+                Visit Blog
+                <ArrowUpRight size={13} />
+              </a>
+              <a href={resumePdf} target="_blank" rel="noreferrer" className="about-btn d-inline-flex align-items-center gap-1 fw-semibold">
+                Resume
+                <ArrowUpRight size={13} />
+              </a>
+            </div>
           </Section>
 
           <Section id="education" title="Education">
@@ -229,6 +251,45 @@ export default function App() {
                   </span>
                   <div className="cert-meta mt-1">{c.issuer} · {c.year}</div>
                 </div>
+              </div>
+            ))}
+          </Section>
+
+          <Section id="music" title="Music Production">
+            {music.map((track, i) => (
+              <div key={i} className="music-item mb-4">
+                <div className="d-flex justify-content-between align-items-baseline flex-wrap gap-2 mb-2">
+                  <span className="music-title fw-bold">{track.title}</span>
+                  <span className="music-note">
+                    {track.credits.map((c, j) => (
+                      <span key={j}>
+                        {c.label}{c.name && <>{" "}<a href={c.url} target="_blank" rel="noreferrer">{c.name}</a></>}
+                      </span>
+                    ))}
+                  </span>
+                </div>
+                {track.youtube && (
+                  <div className="music-video mb-2">
+                    <iframe
+                      src={track.youtube}
+                      title={track.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                )}
+                {track.audioLead && (
+                  <div className="music-audio mb-1">
+                    <span className="music-audio-label">Guitar lead</span>
+                    <audio controls preload="none" src={track.audioLead} />
+                  </div>
+                )}
+                {track.audio && (
+                  <div className="music-audio">
+                    <span className="music-audio-label">With vocals</span>
+                    <audio controls preload="none" src={track.audio} />
+                  </div>
+                )}
               </div>
             ))}
           </Section>
