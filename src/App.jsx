@@ -25,7 +25,7 @@ const MOBILE_NAV = [
   { id: "skills", label: "Skills", icon: Layers },
   { id: "projects", label: "Projects", icon: FolderOpen },
   { id: "certifications", label: "Certifications", icon: Award },
-  { id: "music", label: "Music", icon: Music },
+  { id: "music", label: "Music Production", icon: Music },
   { id: "blog", label: "Blog", icon: BookOpen },
   { id: "resume", label: "Resume", icon: FileText },
 ];
@@ -256,6 +256,7 @@ export default function App() {
           </Section>
 
           <Section id="music" title="Music Production">
+            <p className="about-text mb-4">Some of my amateur music production works.</p>
             {music.map((track, i) => (
               <div key={i} className="music-item mb-4">
                 <div className="d-flex justify-content-between align-items-baseline flex-wrap gap-2 mb-2">

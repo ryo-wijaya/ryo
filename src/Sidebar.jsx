@@ -13,7 +13,7 @@ const NAV = [
   { id: "skills", label: "Skills", icon: Layers },
   { id: "projects", label: "Projects", icon: FolderOpen },
   { id: "certifications", label: "Certifications", icon: Award },
-  { id: "music", label: "Music", icon: Music },
+  { id: "music", label: "Music Production", icon: Music },
 ];
 
 export default function Sidebar({ active }) {
