@@ -282,13 +282,13 @@ export default function App() {
                 {track.audioLead && (
                   <div className="music-audio mb-1">
                     <span className="music-audio-label">Guitar lead</span>
-                    <audio controls preload="none" src={track.audioLead} />
+                    <audio controls preload="metadata" src={track.audioLead} />
                   </div>
                 )}
                 {track.audio && (
                   <div className="music-audio">
                     <span className="music-audio-label">With vocals</span>
-                    <audio controls preload="none" src={track.audio} />
+                    <audio controls preload="metadata" src={track.audio} />
                   </div>
                 )}
               </div>
