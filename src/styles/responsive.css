@@ -172,6 +172,10 @@
     display: none;
   }
 
+  .page-content .section-title {
+    margin-top: 2.5rem;
+  }
+
   .mobile-breadcrumb {
     display: flex;
     align-items: center;
@@ -243,7 +247,7 @@
   }
 
   .page-content {
-    padding-top: 1.5rem;
+    padding-top: 2.5rem;
   }
 
   .contact-form {
