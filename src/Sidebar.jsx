@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   User, GraduationCap, Briefcase, Layers, FolderOpen,
   Award, Music, FileText, BookOpen, Github, Linkedin, Mail, ArrowUpRight,
@@ -17,8 +18,14 @@ const NAV = [
 ];
 
 export default function Sidebar({ active, activePage }) {
+  const [bounce, setBounce] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleAvatarClick = () => {
+    setBounce(true);
+    setTimeout(() => setBounce(false), 800);
+  };
 
   const scrollTo = (id) => {
     if (location.pathname !== "/") {
@@ -33,7 +40,7 @@ export default function Sidebar({ active, activePage }) {
       <ThemeToggle className="sidebar-theme-toggle" />
       <div className="sidebar-inner d-flex flex-column justify-content-center">
         <div className="sidebar-header text-center mb-4">
-          <div className="avatar-wrapper mx-auto mb-2">
+          <div className={`avatar-wrapper mx-auto mb-2${bounce ? " avatar-bounce" : ""}`} onClick={handleAvatarClick}>
             <img src="/eevee-tar.jpeg" alt={profile.name} className="avatar d-block w-100 h-100 object-fit-cover" />
           </div>
           <h1 className="sidebar-name fw-bold mb-0">{profile.name}</h1>
