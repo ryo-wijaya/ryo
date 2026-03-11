@@ -208,6 +208,21 @@
     width: 18px;
     height: 18px;
   }
+
+  .music-audio {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .music-audio-label {
+    min-width: unset;
+  }
+
+  .music-player-row {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
