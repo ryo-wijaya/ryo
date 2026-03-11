@@ -1,7 +1,8 @@
 import {
   User, GraduationCap, Briefcase, Layers, FolderOpen,
-  Award, Music, FileText, BookOpen, Github, Linkedin, Mail,
+  Award, Music, FileText, BookOpen, Github, Linkedin, Mail, ArrowUpRight,
 } from "lucide-react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { profile } from "./data";
 import resumePdf from "./assets/Ryo_Wijaya_Resume.pdf";
 import ThemeToggle from "./ThemeToggle";
@@ -13,12 +14,18 @@ const NAV = [
   { id: "skills", label: "Skills", icon: Layers },
   { id: "projects", label: "Projects", icon: FolderOpen },
   { id: "certifications", label: "Certifications", icon: Award },
-  { id: "music", label: "Music Production", icon: Music },
 ];
 
-export default function Sidebar({ active }) {
+export default function Sidebar({ active, activePage }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -57,14 +64,21 @@ export default function Sidebar({ active }) {
             </button>
           ))}
 
-          <a href={profile.blog} target="_blank" rel="noreferrer" className="nav-item resume-nav d-flex align-items-center gap-2 w-100 text-start">
+          <Link to="/music" className={`nav-item resume-nav d-flex align-items-center gap-2 w-100 text-start${activePage === "/music" ? " active" : ""}`}>
+            <Music size={16} strokeWidth={1.8} />
+            Music Portfolio
+          </Link>
+
+          <a href={profile.blog} target="_blank" rel="noreferrer" className="nav-item d-flex align-items-center gap-2 w-100 text-start">
             <BookOpen size={16} strokeWidth={1.8} />
-            Blog
+            <span className="flex-grow-1">Blog</span>
+            <ArrowUpRight size={12} strokeWidth={2} className="nav-external-icon" />
           </a>
 
           <a href={resumePdf} target="_blank" rel="noreferrer" className="nav-item d-flex align-items-center gap-2 w-100 text-start">
             <FileText size={16} strokeWidth={1.8} />
-            Resume
+            <span className="flex-grow-1">Resume</span>
+            <ArrowUpRight size={12} strokeWidth={2} className="nav-external-icon" />
           </a>
         </nav>
       </div>

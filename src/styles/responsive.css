@@ -168,6 +168,24 @@
     padding: 0 1.15rem 4rem;
   }
 
+  .page-breadcrumb {
+    display: none;
+  }
+
+  .mobile-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    margin-left: 0.25rem;
+  }
+
+  .mobile-breadcrumb span {
+    color: var(--text-primary);
+  }
+
   .portfolio-section {
     min-height: calc(100vh - var(--topbar-h));
     min-height: calc(100dvh - var(--topbar-h));
@@ -222,6 +240,14 @@
   .music-player-row {
     max-width: 100%;
     width: 100%;
+  }
+
+  .page-content {
+    padding-top: 1.5rem;
+  }
+
+  .contact-form {
+    max-width: 100%;
   }
 }
 

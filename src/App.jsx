@@ -1,22 +1,22 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   MapPin, Mail, ArrowUpRight, Menu, X,
   User, GraduationCap, Briefcase, Layers, FolderOpen, Award, Music, BookOpen, FileText,
-  Flag, Download,
+  Flag,
 } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Section from "./Section";
 import ThemeToggle from "./ThemeToggle";
-import { AudioPlayer } from "react-audio-play";
 import {
   profile, education, experience, languages, skills,
-  projects, certifications, music,
+  projects, certifications,
 } from "./data";
 import resumePdf from "./assets/Ryo_Wijaya_Resume.pdf";
 
 const SECTIONS = [
   "about", "education", "experience",
-  "skills", "projects", "certifications", "music",
+  "skills", "projects", "certifications",
 ];
 
 const MOBILE_NAV = [
@@ -26,29 +26,47 @@ const MOBILE_NAV = [
   { id: "skills", label: "Skills", icon: Layers },
   { id: "projects", label: "Projects", icon: FolderOpen },
   { id: "certifications", label: "Certifications", icon: Award },
-  { id: "music", label: "Music Production", icon: Music },
-  { id: "blog", label: "Blog", icon: BookOpen },
-  { id: "resume", label: "Resume", icon: FileText },
+  { id: "music", label: "Music Portfolio", icon: Music, route: "/music" },
+  { id: "blog", label: "Blog", icon: BookOpen, external: true },
+  { id: "resume", label: "Resume", icon: FileText, external: true },
 ];
 
 export default function App() {
-  const [active, setActive] = useState("about");
+  const [active, setActive] = useState(() => {
+    const hash = window.location.hash.slice(1);
+    return SECTIONS.includes(hash) ? hash : "about";
+  });
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const playerRefs = useRef({});
-
-  const pauseOthers = useCallback((currentKey) => {
-    Object.entries(playerRefs.current).forEach(([key, player]) => {
-      if (key !== currentKey && player?.pause) {
-        player.pause();
-      }
-    });
-  }, []);
+  const location = useLocation();
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      setTimeout(() => {
+        document.getElementById(location.state.scrollTo)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location.state]);
+
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash && SECTIONS.includes(hash)) {
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (active) {
+      window.history.replaceState(null, "", `#${active}`);
+    }
+  }, [active]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -96,8 +114,20 @@ export default function App() {
         </header>
 
         <nav className={`dropdown-menu${menuOpen ? " open" : ""}`}>
-          {MOBILE_NAV.map(({ id, label, icon: Icon }, i) =>
-            id === "resume" ? (
+          {MOBILE_NAV.map(({ id, label, icon: Icon, route, external }, i) =>
+            route ? (
+              <Link
+                key={id}
+                to={route}
+                className="dropdown-item"
+                style={{ animationDelay: `${i * 0.04}s` }}
+                onClick={() => setMenuOpen(false)}
+              >
+                <Icon size={18} strokeWidth={1.8} />
+                <span className="flex-grow-1">{label}</span>
+                {external && <ArrowUpRight size={13} strokeWidth={2} className="dropdown-external-icon" />}
+              </Link>
+            ) : id === "resume" ? (
               <a
                 key={id}
                 href={resumePdf}
@@ -108,7 +138,8 @@ export default function App() {
                 onClick={() => setMenuOpen(false)}
               >
                 <Icon size={18} strokeWidth={1.8} />
-                <span>{label}</span>
+                <span className="flex-grow-1">{label}</span>
+                {external && <ArrowUpRight size={13} strokeWidth={2} className="dropdown-external-icon" />}
               </a>
             ) : id === "blog" ? (
               <a
@@ -121,7 +152,8 @@ export default function App() {
                 onClick={() => setMenuOpen(false)}
               >
                 <Icon size={18} strokeWidth={1.8} />
-                <span>{label}</span>
+                <span className="flex-grow-1">{label}</span>
+                {external && <ArrowUpRight size={13} strokeWidth={2} className="dropdown-external-icon" />}
               </a>
             ) : (
               <button
@@ -269,68 +301,6 @@ export default function App() {
                   </span>
                   <div className="cert-meta mt-1">{c.issuer} · {c.year}</div>
                 </div>
-              </div>
-            ))}
-          </Section>
-
-          <Section id="music" title="Music Production">
-            <p className="about-text mb-4">Some of my amateur music production works.</p>
-            {music.map((track, i) => (
-              <div key={i} className="music-item mb-4">
-                <div className="d-flex justify-content-between align-items-baseline flex-wrap gap-2 mb-2">
-                  <span className="music-title fw-bold">{track.title}</span>
-                  <span className="music-note">
-                    {track.credits.map((c, j) => (
-                      <span key={j}>
-                        {c.label}{c.name && <>{" "}<a href={c.url} target="_blank" rel="noreferrer">{c.name}</a></>}
-                      </span>
-                    ))}
-                  </span>
-                </div>
-                {track.youtube && (
-                  <div className="music-video mb-2">
-                    <iframe
-                      src={track.youtube}
-                      title={track.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  </div>
-                )}
-                {track.audioLead && (
-                  <div className="music-audio mb-1">
-                    <span className="music-audio-label">Guitar lead</span>
-                    <div className="music-player-row">
-                      <AudioPlayer
-                        className="music-rap"
-                        src={track.audioLead}
-                        preload="metadata"
-                        onPlay={() => pauseOthers(`lead-${i}`)}
-                        ref={(el) => { if (el) playerRefs.current[`lead-${i}`] = el; }}
-                      />
-                      <a href={track.audioLead} download className="music-download" title="Download">
-                        <Download size={16} />
-                      </a>
-                    </div>
-                  </div>
-                )}
-                {track.audio && (
-                  <div className="music-audio">
-                    <span className="music-audio-label">With vocals</span>
-                    <div className="music-player-row">
-                      <AudioPlayer
-                        className="music-rap"
-                        src={track.audio}
-                        preload="metadata"
-                        onPlay={() => pauseOthers(`vocal-${i}`)}
-                        ref={(el) => { if (el) playerRefs.current[`vocal-${i}`] = el; }}
-                      />
-                      <a href={track.audio} download className="music-download" title="Download">
-                        <Download size={16} />
-                      </a>
-                    </div>
-                  </div>
-                )}
               </div>
             ))}
           </Section>
