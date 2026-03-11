@@ -1,12 +1,13 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
   MapPin, Mail, ArrowUpRight, Menu, X,
   User, GraduationCap, Briefcase, Layers, FolderOpen, Award, Music, BookOpen, FileText,
-  Flag,
+  Flag, Download,
 } from "lucide-react";
 import Sidebar from "./Sidebar";
 import Section from "./Section";
 import ThemeToggle from "./ThemeToggle";
+import { AudioPlayer } from "react-audio-play";
 import {
   profile, education, experience, languages, skills,
   projects, certifications, music,
@@ -34,6 +35,15 @@ export default function App() {
   const [active, setActive] = useState("about");
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const playerRefs = useRef({});
+
+  const pauseOthers = useCallback((currentKey) => {
+    Object.entries(playerRefs.current).forEach(([key, player]) => {
+      if (key !== currentKey && player?.pause) {
+        player.pause();
+      }
+    });
+  }, []);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -157,10 +167,14 @@ export default function App() {
             {education.map((edu, i) => (
               <div key={i} className="edu-item mb-4">
                 <div className="d-flex gap-3 align-items-start">
-                  {edu.logo && <img src={edu.logo} alt="" className="item-logo flex-shrink-0" />}
+                  {edu.logo && (
+                    <a href={edu.linkedin} target="_blank" rel="noreferrer" className="flex-shrink-0">
+                      <img src={edu.logo} alt="" className="item-logo" />
+                    </a>
+                  )}
                   <div className="flex-grow-1 min-w-0">
                     <div className="item-header d-flex justify-content-between align-items-baseline flex-wrap gap-2 mb-1">
-                      <span className="item-title fw-bold">{edu.school} <span className="item-loc">· {edu.location}</span></span>
+                      <span className="item-title fw-bold"><a href={edu.linkedin} target="_blank" rel="noreferrer">{edu.school}</a> <span className="item-loc">· {edu.location}</span></span>
                       <span className="item-period fw-semibold text-nowrap">{edu.period}</span>
                     </div>
                     <div className="item-subtitle">{edu.degree}</div>
@@ -175,10 +189,14 @@ export default function App() {
             {experience.map((exp, i) => (
               <div key={i} className="exp-item mb-4">
                 <div className="d-flex gap-3 align-items-start">
-                  {exp.logo && <img src={exp.logo} alt="" className="item-logo flex-shrink-0" />}
+                  {exp.logo && (
+                    <a href={exp.linkedin} target="_blank" rel="noreferrer" className="flex-shrink-0">
+                      <img src={exp.logo} alt="" className="item-logo" />
+                    </a>
+                  )}
                   <div className="flex-grow-1 min-w-0">
                     <div className="item-header d-flex justify-content-between align-items-baseline flex-wrap gap-2 mb-1">
-                      <span className="item-title fw-bold">{exp.role} <span className="item-loc">· {exp.company}</span></span>
+                      <span className="item-title fw-bold">{exp.role} <span className="item-loc">· <a href={exp.linkedin} target="_blank" rel="noreferrer">{exp.company}</a></span></span>
                       <span className="item-period fw-semibold text-nowrap">{exp.period}</span>
                     </div>
                     <ul className="exp-bullets list-unstyled mt-2">
@@ -282,13 +300,35 @@ export default function App() {
                 {track.audioLead && (
                   <div className="music-audio mb-1">
                     <span className="music-audio-label">Guitar lead</span>
-                    <audio controls preload="metadata" src={track.audioLead} />
+                    <div className="music-player-row">
+                      <AudioPlayer
+                        className="music-rap"
+                        src={track.audioLead}
+                        preload="metadata"
+                        onPlay={() => pauseOthers(`lead-${i}`)}
+                        ref={(el) => { if (el) playerRefs.current[`lead-${i}`] = el; }}
+                      />
+                      <a href={track.audioLead} download className="music-download" title="Download">
+                        <Download size={16} />
+                      </a>
+                    </div>
                   </div>
                 )}
                 {track.audio && (
                   <div className="music-audio">
                     <span className="music-audio-label">With vocals</span>
-                    <audio controls preload="metadata" src={track.audio} />
+                    <div className="music-player-row">
+                      <AudioPlayer
+                        className="music-rap"
+                        src={track.audio}
+                        preload="metadata"
+                        onPlay={() => pauseOthers(`vocal-${i}`)}
+                        ref={(el) => { if (el) playerRefs.current[`vocal-${i}`] = el; }}
+                      />
+                      <a href={track.audio} download className="music-download" title="Download">
+                        <Download size={16} />
+                      </a>
+                    </div>
                   </div>
                 )}
               </div>
