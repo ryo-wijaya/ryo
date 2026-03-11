@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowLeft, Home, ChevronRight } from "lucide-react";
 import Sidebar from "../Sidebar";
@@ -6,6 +7,10 @@ import ThemeToggle from "../ThemeToggle";
 export default function PageLayout({ title, children }) {
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <div className="layout">
