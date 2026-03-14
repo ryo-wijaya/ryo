@@ -8,7 +8,7 @@ export const profile = {
   github: "https://github.com/ryo-wijaya",
   blog: "https://blog.ryo-wijaya.me",
   about:
-    "Full stack software engineer in Singapore. Currently at Crédit Agricole Corporate & Investment Bank, where I mostly build backend services and data pipelines with Spring Boot, Spark Java, Kafka, Helm/Kubernetes/Docker, GitLab CI, and GCP. Outside of work, I play electric guitar, piano, drums, do some amateur music production, and bring my dog out to places.",
+    "Full stack software engineer in Singapore. Currently at Crédit Agricole Corporate & Investment Bank, where I mostly build backend services and data pipelines with Spring Boot, Spark Java, Kafka, Helm/Kubernetes/Docker, GitLab CI, and GCP. Outside of work, my interests are mostly into personal finance, electric guitar, piano, drums, and amateur music production. I also enjoy bringing my dog out to places.",
 };
 
 export const education = [
@@ -113,7 +113,7 @@ export const projects = [
     tech: "Jekyll, GitHub Actions",
     url: "https://blog.ryo-wijaya.me",
     description:
-      "Personal Jekyll blog utilizing the open-source Chirpy Theme.",
+      "Personal Jekyll blog utilizing the open-source Chirpy Theme. Used for notes on tech and finance.",
   },
   {
     name: "HotelReservationProject",
