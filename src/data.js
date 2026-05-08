@@ -18,7 +18,7 @@ export const education = [
     degree: "Bachelor of Computing, Information Systems (Hons. with Distinction)",
     detail: "FinTech Specialisation",
     period: "Aug 2020 – June 2024",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/NUS_coat_of_arms.svg/1200px-NUS_coat_of_arms.svg.png",
+    logo: "https://nus.edu.sg/images/default-source/identity-images/fullcolorlogo.jpg",
     linkedin: "https://www.linkedin.com/school/national-university-of-singapore/",
   },
   {
@@ -32,15 +32,15 @@ export const education = [
 ];
 
 export const experience = [
-  {
+{
     role: "Software Engineer",
     company: "Crédit Agricole CIB",
     period: "July 2024 – Present",
     logo: "/cacib.png",
     linkedin: "https://www.linkedin.com/company/credit-agricole-cib/",
     bullets: [
-      "Contributed to the design and development of a greenfield project to build modular ETL Treatment Chains using Spark Streaming, Spring Boot, and GCP; developed cloud-enabled Java drivers to ingest, enrich, and distribute Commercial Real Estate Loans and Capital Markets data.",
-      "Developed an internal Spring Boot platform for automated JSON ↔ Avro conversion, Kafka topic management, PostgreSQL configuration validation and loading, and Apache Iceberg DDL generation from Avro schema; adopted by cross-functional teams in Singapore and Paris.",
+      "Contributed to the design and development of a greenfield project to build modular ETL Treatment Chains using Spark Streaming, Spring Boot, and GCP; developed cloud-enabled Java drivers to ingest, enrich, and distribute Commercial Real Estate Loans, ESG, and Capital Markets data.",
+      "Owner and main contributor (7 out of 9 core modules) of a Spring Boot DevTools platform for automated JSON ↔ Avro conversion, Kafka topic management, PostgreSQL configuration validation and loading, and Apache Iceberg DDL from Avro schema generation; accelerating cross-functional delivery for teams in Singapore and Paris.",
       "Architected and implemented OpenID Connect (OIDC) and OAuth2 SSO authentication for the Angular application platform and developed UI features.",
       "Implemented schema validation across upstream sources and downstream destinations by utilizing Confluent Schema Registry and Kafka. Managed schema evolution across Avro schema version upgrades.",
       "Orchestrated deployments using Helm, Kubernetes, and created GitLab CI pipelines to ensure robust CI/CD.",
@@ -51,7 +51,7 @@ export const experience = [
     role: "Software Engineer Intern",
     company: "SP Group",
     period: "Jan 2023 – June 2023",
-    logo: "/sp-group.png",
+    logo: "/sp-group.png", 
     linkedin: "https://www.linkedin.com/company/singapore-power-ltd/",
     bullets: [
       "Developed an OCPP 1.6/2.0.1 compliant electric vehicle charger simulator using FastAPI and WebSockets.",
@@ -117,7 +117,7 @@ export const projects = [
   },
   {
     name: "HotelReservationProject",
-    tech: "Jakarta EE, GlassFish, SOAP Web Services",
+    tech: "Jakarta EE, SOAP Web Services",
     url: "https://github.com/ryo-wijaya/HotelReservationProject",
     description:
       "Enterprise CLI application for hotel room inventory, rate management, reservations, and automated room allocation.",
