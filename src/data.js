@@ -95,11 +95,11 @@ export const projects = [
       "Dashboard application for bus timings and stock market monitoring, running on a Raspberry Pi.",
   },
   {
-    name: "RAG System",
-    tech: "FastAPI, LangGraph, Qdrant",
+    name: "FinRAG",
+    tech: "FastAPI, LangGraph, Qdrant, GCP",
     url: null,
     description:
-      "FastAPI application using LangGraph and Qdrant to implement hybrid (vector + BM25) search over documents.",
+      "FastAPI application implementing hybrid (vector + BM25) document search and analysis for financial data.",
   },
     {
     name: "ryo",
