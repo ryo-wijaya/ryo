@@ -3,7 +3,7 @@ export const profile = {
   title: "Software Engineer",
   location: "Singapore",
   nationality: "Singapore Citizen",
-  email: "mainryo@gmail.com",
+  email: "contact.ryowijaya@gmail.com",
   linkedin: "https://linkedin.com/in/ryowijaya",
   github: "https://github.com/ryo-wijaya",
   blog: "https://blog.ryo-wijaya.me",
