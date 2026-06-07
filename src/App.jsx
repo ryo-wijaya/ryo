@@ -267,7 +267,7 @@ export default function App() {
             ))}
           </Section>
 
-          <Section id="projects" title="Projects">
+          <Section id="projects" title="Personal Projects">
             <div className="projects-grid">
               {projects.map((p, i) => (
                 <a
