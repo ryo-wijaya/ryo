@@ -96,7 +96,7 @@ export const projects = [
   },
   {
     name: "FinRAG",
-    tech: "FastAPI, LangGraph, Qdrant, GCP",
+    tech: "Python, FastAPI, LangGraph, Qdrant, GCP",
     url: null,
     description:
       "FastAPI application implementing hybrid (vector + BM25) document search and analysis for financial data.",
@@ -131,10 +131,17 @@ export const projects = [
   },
   {
     name: "ibkr-tv-tradebot",
-    tech: "FastAPI, IBKR TWS API, TradingView",
+    tech: "Python, FastAPI, IBKR TWS API, TradingView",
     url: "https://github.com/ryo-wijaya/ibkr-tv-tradebot",
     description:
       "FastAPI server utilizing the IBKR TWS API for order execution and TradingView webhook integration.",
+  },
+  {
+    name: "trade-signals",
+    tech: "Python, FastAPI, Telegram, OpenRouter, Fly.io",
+    url: "https://github.com/ryo-wijaya/trade-signals",
+    description:
+      "Telegram bot that runs daily technical analysis on a stock watchlist and delivers buy/sell signals with indicator breakdowns and optional AI-powered market summaries.",
   },
   {
     name: "trade-alerter",
