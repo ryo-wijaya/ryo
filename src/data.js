@@ -96,17 +96,17 @@ export const projects = [
   },
   {
     name: "FinRAG",
-    tech: "Python, FastAPI, LangGraph, Qdrant, PostgreSQL, BGE-M3, Llama3, GCP",
+    tech: "Python, FastAPI, LangGraph, Qdrant, PostgreSQL, GCP",
     url: null,
     description:
-      "Multi-tenant financial regulatory knowledge base search platform using hybrid BGE-M3 dense and BM25 sparse retrieval over Qdrant, orchestrated via a LangGraph pipeline with Firebase RBAC.",
+      "Multi-tenant financial regulatory knowledge base search platform using hybrid BGE-M3 dense and BM25 sparse retrieval over Qdrant.",
   },
   {
     name: "FinDiligence",
-    tech: "Python, FastAPI, LangGraph, Qdrant, PostgreSQL, BGE-M3, Llama3, GCP",
+    tech: "Python, FastAPI, LangGraph, Qdrant, PostgreSQL, GCP",
     url: null,
     description:
-      "Financial report analysis platform to ingest reports, extracts structured KPIs, runs multi-stage compliance gap analysis with risk scoring, and provides an AI chat copilot for document Q&A.",
+      "Financial report analysis platform to ingest reports, extracts structured KPIs, runs multi-stage compliance gap analysis and provides AI document search.",
   },
     {
     name: "ryo",
