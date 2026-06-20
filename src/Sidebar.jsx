@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { profile } from "./data";
-import resumePdf from "./assets/Ryo_Wijaya_Resume.pdf";
+import resumePdf from "./assets/Ryo_Wijaya_Resume_nohp.pdf";
 import ThemeToggle from "./ThemeToggle";
 
 const NAV = [

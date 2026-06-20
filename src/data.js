@@ -39,12 +39,15 @@ export const experience = [
     logo: "/cacib.png",
     linkedin: "https://www.linkedin.com/company/credit-agricole-cib/",
     bullets: [
-      "Contributed to the design and development of a greenfield project to build modular ETL Treatment Chains using Spark Streaming, Spring Boot, and GCP; developed cloud-enabled Java drivers to ingest, enrich, and distribute Commercial Real Estate Loans, ESG, and Capital Markets data.",
-      "Owner and main contributor (7 out of 9 core modules) of a Spring Boot DevTools platform for automated JSON ↔ Avro conversion, Kafka topic management, PostgreSQL configuration validation and loading, and Apache Iceberg DDL from Avro schema generation; accelerating cross-functional delivery for teams in Singapore and Paris.",
-      "Architected and implemented OpenID Connect (OIDC) and OAuth2 SSO authentication for the Angular application platform and developed UI features.",
-      "Implemented schema validation across upstream sources and downstream destinations by utilizing Confluent Schema Registry and Kafka. Managed schema evolution across Avro schema version upgrades.",
-      "Orchestrated deployments using Helm, Kubernetes, and created GitLab CI pipelines to ensure robust CI/CD.",
-      "Contributed to application security by remediating Checkmarx and JFrog Xray vulnerabilities, and enforcing SonarQube quality gates.",
+      "As a founding engineer on a greenfield project, built modular ETL Treatment Chains using Spark Streaming, Spring Boot, and Google Cloud Platform; developed and maintained Java drivers across a suite of 22+ ingestion, enrichment, and distribution pipelines spanning Commercial Real Estate Loans, ESG, and Capital Markets data.",
+      "Developed, tested, and shipped REST APIs and backend features across the core Spring Boot applications, delivering functionality spanning security integrations, configuration management, and Kafka-based messaging.",
+      "Owner and main contributor (7 of 9 core modules) of an internal Spring Boot DevTools platform covering automated JSON ↔ Avro conversion, Kafka topic management, and Apache Iceberg DDL generation from Avro schemas.",
+      "Developed a configuration validation and loading platform adopted across teams in Singapore and Paris to manage application inputs, reducing manual validation overhead and accelerating development and UAT cycles.",
+      "Architected and implemented OpenID Connect (OIDC) and OAuth2 SSO authentication for the Angular application platform; also developed UI features.",
+      "Engineered Java Avro deserializers and schema validation pipelines across both Spring Kafka and Spark Kafka consumers, integrating with Confluent Schema Registry to enforce strict schema contracts and eliminate non-compliant ingestion.",
+      "Managed end-to-end Avro schema versioning cycles, propagating changes across pipeline components and coordinating upstream/downstream integration teams through SIT to ensure pipeline integrity for UAT and production releases.",
+      "Designed and maintained GitLab CI pipelines covering automated build, test, Docker image builds, and staging/stable registry promotions; orchestrated application deployments using Helm and Kubernetes.",
+      "Strengthened application security by remediating Checkmarx and JFrog Xray vulnerabilities and enforcing SonarQube quality gates across all feature deployments and targeted large-scale remediation efforts.",
     ],
   },
   {
@@ -67,7 +70,7 @@ export const experience = [
     linkedin: "https://www.linkedin.com/company/reluvate/",
     bullets: [
       "Developed a hiring web platform using Node and GCP Cloud Services to automate over 90% of company recruitment processes, including document exchange and technical assessments.",
-      "Built a Python backend for an accounting platform product to handle payments and contracts.",
+      "Built a Python backend for an accounting platform to handle payments and contracts.",
     ],
   },
 ];

@@ -12,7 +12,7 @@ import {
   profile, education, experience, languages, skills,
   projects, certifications,
 } from "./data";
-import resumePdf from "./assets/Ryo_Wijaya_Resume.pdf";
+import resumePdf from "./assets/Ryo_Wijaya_Resume_nohp.pdf";
 
 const SECTIONS = [
   "about", "education", "experience",
