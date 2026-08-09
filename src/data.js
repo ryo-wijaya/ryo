@@ -70,12 +70,19 @@ export const experience = [
     linkedin: "https://www.linkedin.com/company/reluvate/",
     bullets: [
       "Developed a hiring web platform using Node and GCP Cloud Services to automate over 90% of company recruitment processes, including document exchange and technical assessments.",
-      "Built a Python backend for an accounting platform to handle payments and contracts.",
+      "Built a Python serverless backend for an accounting platform to handle payments and contracts.",
     ],
   },
 ];
 
 export const projects = [
+  {
+    name: "Drift",
+    tech: "FastAPI, Next.js, PostgreSQL, Docker, GCP Cloud Run",
+    url: "https://driftdigest.com",
+    description:
+      "AI-narrated portfolio digest for retail investors and traders — weekly analytics, tax-loss harvesting insights, technical indicators, and Interactive Brokers sync, delivered on a schedule you control instead of a trading-terminal dashboard.",
+  },
   {
     name: "PetHub",
     tech: "Express.js, Next.js, PostgreSQL, Prisma, AWS",
@@ -180,23 +187,38 @@ export const skills = {
     { name: "Apache Kafka", icon: d("apachekafka", "original") },
     { name: "Apache Spark", icon: d("apachespark", "original") },
     { name: "Apache Iceberg", icon: "https://iceberg.apache.org/assets/images/iceberg-logo-icon.png" },
+    { name: "Avro" },
+    { name: "ETL" },
+    { name: "RESTful APIs" },
     { name: "FastAPI", icon: d("fastapi", "original") },
     { name: "Next.js", icon: d("nextjs", "original") },
     { name: "React.js", icon: d("react", "original") },
     { name: "Node.js", icon: d("nodejs", "original") },
     { name: "Angular", icon: d("angular", "plain") },
     { name: "PostgreSQL", icon: d("postgresql", "original") },
-    { name: "NoSQL Databases" },
+    { name: "Jakarta EE" },
+    { name: "JUnit" },
     { name: "Liquibase", icon: d("liquibase", "original") },
   ],
   "Infrastructure & Tools": [
+    { name: "DevOps" },
     { name: "Kubernetes", icon: d("kubernetes", "original") },
     { name: "Helm", icon: d("helm", "original") },
     { name: "Docker", icon: d("docker", "original") },
-    { name: "GitLab CI/CD", icon: d("gitlab", "original") },
+    { name: "Containerization" },
+    { name: "GitLab CI", icon: d("gitlab", "original") },
+    { name: "CI/CD" },
     { name: "Git", icon: d("git", "original") },
+    { name: "Maven", icon: d("maven", "original") },
+    { name: "Linux", icon: d("linux", "original") },
     { name: "GCP", icon: d("googlecloud", "original") },
+    { name: "GKE" },
+    { name: "GCS" },
+    { name: "Cloud Run" },
     { name: "Azure", icon: d("azure", "original") },
+    { name: "SonarQube" },
+    { name: "Checkmarx" },
+    { name: "JFrog Xray" },
   ],
   "AI Engineering": [
     { name: "RAG" },
@@ -204,6 +226,14 @@ export const skills = {
     { name: "LangChain" },
     { name: "Qdrant" },
     { name: "Ollama" },
+  ],
+  Others: [
+    { name: "Microservices Architecture" },
+    { name: "Event-Driven Architecture" },
+    { name: "Distributed Systems" },
+    { name: "OIDC/OAuth2" },
+    { name: "Agile" },
+    { name: "Scrum" },
   ],
 };
 
